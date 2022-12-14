@@ -1,9 +1,6 @@
 package errorsLem
 
-
-//Return false if noPath between 
+// Return false if noPath between
 func PathFind() bool {
 	return false
-
 }
-

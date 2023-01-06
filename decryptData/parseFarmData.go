@@ -37,17 +37,17 @@ func ParseData() (*class.Farm, error) {
 	for i := 0; i < len(lines); i++ {
 		if lines[i] == "##start" {
 			roomInfo := strings.Split(lines[i+1], " ")
-			farm.Start = class.CreatRoom(roomInfo[0], roomInfo[1], roomInfo[2])
+			farm.Start = class.CreateRoom(roomInfo[0], roomInfo[1], roomInfo[2])
 			farm.Rooms = append(farm.Rooms, farm.Start)
 		}
 		if lines[i] == "##end" {
 			roomInfo := strings.Split(lines[i+1], " ")
-			farm.End = class.CreatRoom(roomInfo[0], roomInfo[1], roomInfo[2])
+			farm.End = class.CreateRoom(roomInfo[0], roomInfo[1], roomInfo[2])
 			farm.Rooms = append(farm.Rooms, farm.End)
 		}
 		// Récupération des rooms
 		if roomInfo := strings.Split(lines[i], " "); len(roomInfo) == 3 {
-			farm.Rooms = append(farm.Rooms, class.CreatRoom(roomInfo[0], roomInfo[1], roomInfo[2]))
+			farm.Rooms = append(farm.Rooms, class.CreateRoom(roomInfo[0], roomInfo[1], roomInfo[2]))
 		}
 		// Récupération des liens
 		if linkInfo := strings.Split(lines[i], "-"); len(linkInfo) == 2 {

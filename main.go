@@ -5,6 +5,7 @@ import (
 
 	"lem-in/class"
 	decryptdata "lem-in/decryptData"
+	"lem-in/errorsLem"
 	findpath "lem-in/findPath"
 )
 
@@ -67,7 +68,67 @@ func main() {
 			bestPath = pathLs
 		}
 	}
+	if len(bestPath) == 0 {
+		panic(errorsLem.ErrNoPathFound)
+	}
 	fmt.Println("nb etape =", shortestEtape-1, (bestPath))
+
+	pathObj := []*class.PathO{}
+	for i, p := range bestPath {
+		pathObj = append(pathObj, &class.PathO{Name: fmt.Sprint("path", i), Path: p, IsUsed: false, Population: len(p)})
+	}
+	fmt.Println(pathObj)
+	farm.CreatePopulation()
+
+	popRunI := 1
+	for i := 0; i < shortestEtape; i++ {
+		for range bestPath {
+			if popRunI < farm.AntNb {
+				popRunI++
+			}
+		}
+		for _, ant := range farm.Population[:popRunI] {
+			if len(ant.Path.Path) == 0 {
+				iM := findMinPath(pathObj)
+				for pathObj[iM].IsUsed {
+					iM = findMinPath(append(pathObj[:iM], pathObj[1+iM:]...))
+				}
+				ant.Path = pathObj[iM]
+				pathObj[iM].Population++
+			}
+			// fmt.Print(ant.ID)
+		}
+		for _, p := range pathObj {
+			p.IsUsed = false
+		}
+		// for range bestPath {
+		// 	if len(farm.Population) != farm.AntNb {
+		// 		farm.AddPopulation()
+		// 		iM := findMin(pathPopulation)
+		// 		farm.Population[len(farm.Population)-1].Path = bestPath[iM]
+		// 		pathPopulation[iM]++
+		// 	}
+		// }
+		// fmt.Print(len(farm.Population))
+
+		// fmt.Print(popRunI)
+		for _, ant := range farm.Population[:popRunI] {
+			// fmt.Print(ant.ID)
+			
+			ant.MoveAnt()
+			if ant.Path.Path[ant.PositionI].Name == farm.End.Name {
+				ant.Path.Path[ant.PositionI].DeletAnt(ant)	
+			}
+		}
+		// fmt.Print(pathPopulation)
+
+		// for _, txt := range tableMove {
+		// 	if txt != "" {
+		// 		fmt.Print(txt)
+		// 	}
+		// }
+		fmt.Println()
+	}
 }
 
 // MOD on "Alann" Branch
@@ -76,6 +137,16 @@ func findMin(table []int) int {
 	minI := 0
 	for i := range table {
 		if table[i] < table[minI] {
+			minI = i
+		}
+	}
+	return minI
+}
+
+func findMinPath(table []*class.PathO) int {
+	minI := 0
+	for i := range table {
+		if table[i].Population < table[minI].Population {
 			minI = i
 		}
 	}

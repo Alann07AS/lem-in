@@ -105,11 +105,58 @@ type PathO struct {
 	Population int
 }
 
-func (a *Ant) MoveAnt() {
+type NewAnt struct {
+	Name int
+}
+
+type NewRoom struct {
+	X    string
+	Y    string
+	Name string
+}
+
+type TOJSON struct {
+	RoomS []NewRoom
+	Steps []Step
+}
+
+func ToSjson(f *Farm, ST []Step) TOJSON {
+	return TOJSON{
+		RoomS: func() []NewRoom {
+			t := []NewRoom{}
+			for _, v := range f.Rooms {
+				t = append(t, v.GetNewRoom())
+			}
+			return t
+		}(),
+		Steps: ST,
+	}
+}
+
+type Step struct {
+	Ants  []NewAnt
+	Paths []NewRoom
+}
+
+func (r *Room) GetNewRoom() NewRoom {
+	return NewRoom{
+		X:    r.X,
+		Y:    r.Y,
+		Name: r.Name,
+	}
+}
+
+func (r *Ant) GetNewAnt() NewAnt {
+	return NewAnt{
+		Name: r.ID,
+	}
+}
+
+func (a *Ant) MoveAnt() *Room {
 	// fmt.Print(a.ID, a.Path.IsUsed)
 	if a.PositionI == len(a.Path.Path)-1 || (a.Path.IsUsed) {
 		// La fourmi a atteint sa destination finale, elle ne bouge plus
-		return
+		return a.Path.Path[a.PositionI]
 	}
 	if !a.Path.Path[a.PositionI+1].IsFull() {
 		// La salle suivante n'est pas pleine, on peut déplacer la fourmi
@@ -125,6 +172,7 @@ func (a *Ant) MoveAnt() {
 	}
 	// fmt.Println(a.Path[a.PositionI].Name)
 	// Si la salle suivante est pleine, la fourmi ne bouge pas et attend l'étape suivante
+	return a.Path.Path[a.PositionI]
 }
 
 func (farm *Farm) GetRoomByName(name string) *Room {

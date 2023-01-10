@@ -7,7 +7,7 @@ import (
 func GetBestPath(farm *class.Farm) *[][]*class.Room {
 	allPath := &[][]*class.Room{}
 	recuPathFinder(farm.Start, []*class.Room{farm.Start}, farm, allPath)
-	sort(*allPath)
+	// sort(*allPath)
 	return allPath
 }
 

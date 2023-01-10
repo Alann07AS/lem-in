@@ -1,7 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
+	"os"
 
 	"lem-in/class"
 	decryptdata "lem-in/decryptData"
@@ -14,16 +17,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	// for _, room := range farm.Rooms {
-	// 	fmt.Print(room.Name, ": ")
-	// 	for _, link := range room.RoomsLink {
-	// 		fmt.Print(link.Name, " ")
-	// 	}
-	// 	fmt.Println()
-	// }
+	for _, room := range farm.Rooms {
+		fmt.Print(room.Name, ": ")
+		for _, link := range room.RoomsLink {
+			fmt.Print(link.Name, " ")
+		}
+		fmt.Println()
+	}
 	res := findpath.GetBestPath(farm)
-	for _, path := range *res {
-		fmt.Print("Path: ")
+	for i, path := range *res {
+		fmt.Print("Path n°", i+1, ": ")
 		for _, roomPath := range path {
 			fmt.Print(roomPath.Name, " -> ")
 		}
@@ -41,6 +44,7 @@ func main() {
 	for _, x := range test {
 		for _, y := range x {
 			for _, z := range y {
+				// fmt.Print(i)
 				fmt.Print(z.Name)
 				fmt.Print(" -> ")
 			}
@@ -80,14 +84,17 @@ func main() {
 	fmt.Println(pathObj)
 	farm.CreatePopulation()
 
+	stepTable := []class.Step{}
+
 	popRunI := 1
 	for i := 0; i < shortestEtape; i++ {
+		stepTable = append(stepTable, class.Step{Ants: []class.NewAnt{}, Paths: []class.NewRoom{}})
 		for range bestPath {
 			if popRunI < farm.AntNb {
 				popRunI++
 			}
 		}
-		for _, ant := range farm.Population[:popRunI] {
+		for _, ant := range farm.Population[:] {
 			if len(ant.Path.Path) == 0 {
 				iM := findMinPath(pathObj)
 				for pathObj[iM].IsUsed {
@@ -112,12 +119,13 @@ func main() {
 		// fmt.Print(len(farm.Population))
 
 		// fmt.Print(popRunI)
-		for _, ant := range farm.Population[:popRunI] {
+		for _, ant := range farm.Population[:] {
 			// fmt.Print(ant.ID)
-			
-			ant.MoveAnt()
+
+			stepTable[len(stepTable)-1].Paths = append(stepTable[len(stepTable)-1].Paths, ant.MoveAnt().GetNewRoom())
+			stepTable[len(stepTable)-1].Ants = append(stepTable[len(stepTable)-1].Ants, ant.GetNewAnt())
 			if ant.Path.Path[ant.PositionI].Name == farm.End.Name {
-				ant.Path.Path[ant.PositionI].DeletAnt(ant)	
+				ant.Path.Path[ant.PositionI].DeletAnt(ant)
 			}
 		}
 		// fmt.Print(pathPopulation)
@@ -129,6 +137,12 @@ func main() {
 		// }
 		fmt.Println()
 	}
+	fmt.Println(stepTable)
+	jsonData, err := json.MarshalIndent(class.ToSjson(farm, stepTable), "", "	")
+	if err != nil {
+		log.Fatal(err)
+	}
+	os.WriteFile("ant.json", jsonData, 777)
 }
 
 // MOD on "Alann" Branch

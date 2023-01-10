@@ -39,11 +39,15 @@ func ParseData() (*class.Farm, error) {
 			roomInfo := strings.Split(lines[i+1], " ")
 			farm.Start = class.CreateRoom(roomInfo[0], roomInfo[1], roomInfo[2])
 			farm.Rooms = append(farm.Rooms, farm.Start)
+			i++
+			continue
 		}
 		if lines[i] == "##end" {
 			roomInfo := strings.Split(lines[i+1], " ")
 			farm.End = class.CreateRoom(roomInfo[0], roomInfo[1], roomInfo[2])
 			farm.Rooms = append(farm.Rooms, farm.End)
+			i++
+			continue
 		}
 		// Récupération des rooms
 		if roomInfo := strings.Split(lines[i], " "); len(roomInfo) == 3 {

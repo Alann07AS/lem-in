@@ -137,12 +137,14 @@ func main() {
 		// }
 		fmt.Println()
 	}
-	fmt.Println(stepTable)
+	// fmt.Println(stepTable)
 	jsonData, err := json.MarshalIndent(class.ToSjson(farm, stepTable), "", "	")
 	if err != nil {
 		log.Fatal(err)
 	}
-	os.WriteFile("ant.json", jsonData, 777)
+	os.WriteFile("ant.json", jsonData, 0o1411)
+	fmt.Println(len(test))
+	fmt.Println(len(*res))
 }
 
 // MOD on "Alann" Branch

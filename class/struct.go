@@ -113,6 +113,7 @@ type NewRoom struct {
 	X    string
 	Y    string
 	Name string
+	Link []string
 }
 
 type TOJSON struct {
@@ -143,6 +144,13 @@ func (r *Room) GetNewRoom() NewRoom {
 		X:    r.X,
 		Y:    r.Y,
 		Name: r.Name,
+		Link: func() []string {
+			table := []string{}
+			for _, l := range r.RoomsLink {
+				table = append(table, l.Name)
+			}
+			return table
+		}(),
 	}
 }
 

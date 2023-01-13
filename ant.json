@@ -1,8 +1,19 @@
 {
+	"StartRoom": {
+		"X": 0,
+		"Y": 6,
+		"Name": "richard",
+		"Link": [
+			"dinish",
+			"gilfoyle",
+			"erlich"
+		]
+	},
+	"NbAnt": 9,
 	"RoomS": [
 		{
-			"X": "0",
-			"Y": "6",
+			"X": 0,
+			"Y": 6,
 			"Name": "richard",
 			"Link": [
 				"dinish",
@@ -11,8 +22,8 @@
 			]
 		},
 		{
-			"X": "6",
-			"Y": "3",
+			"X": 6,
+			"Y": 3,
 			"Name": "gilfoyle",
 			"Link": [
 				"richard",
@@ -21,8 +32,8 @@
 			]
 		},
 		{
-			"X": "9",
-			"Y": "6",
+			"X": 9,
+			"Y": 6,
 			"Name": "erlich",
 			"Link": [
 				"gilfoyle",
@@ -31,8 +42,8 @@
 			]
 		},
 		{
-			"X": "6",
-			"Y": "9",
+			"X": 6,
+			"Y": 9,
 			"Name": "dinish",
 			"Link": [
 				"richard",
@@ -40,8 +51,8 @@
 			]
 		},
 		{
-			"X": "11",
-			"Y": "7",
+			"X": 11,
+			"Y": 7,
 			"Name": "jimYoung",
 			"Link": [
 				"dinish",
@@ -50,8 +61,8 @@
 			]
 		},
 		{
-			"X": "14",
-			"Y": "6",
+			"X": 14,
+			"Y": 6,
 			"Name": "peter",
 			"Link": [
 				"gilfoyle",
@@ -67,33 +78,12 @@
 				},
 				{
 					"Name": 2
-				},
-				{
-					"Name": 3
-				},
-				{
-					"Name": 4
-				},
-				{
-					"Name": 5
-				},
-				{
-					"Name": 6
-				},
-				{
-					"Name": 7
-				},
-				{
-					"Name": 8
-				},
-				{
-					"Name": 9
 				}
 			],
 			"Paths": [
 				{
-					"X": "6",
-					"Y": "3",
+					"X": 6,
+					"Y": 3,
 					"Name": "gilfoyle",
 					"Link": [
 						"richard",
@@ -102,82 +92,12 @@
 					]
 				},
 				{
-					"X": "6",
-					"Y": "9",
+					"X": 6,
+					"Y": 9,
 					"Name": "dinish",
 					"Link": [
 						"richard",
 						"jimYoung"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
 					]
 				}
 			]
@@ -195,27 +115,12 @@
 				},
 				{
 					"Name": 4
-				},
-				{
-					"Name": 5
-				},
-				{
-					"Name": 6
-				},
-				{
-					"Name": 7
-				},
-				{
-					"Name": 8
-				},
-				{
-					"Name": 9
 				}
 			],
 			"Paths": [
 				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -223,8 +128,8 @@
 					]
 				},
 				{
-					"X": "11",
-					"Y": "7",
+					"X": 11,
+					"Y": 7,
 					"Name": "jimYoung",
 					"Link": [
 						"dinish",
@@ -233,8 +138,8 @@
 					]
 				},
 				{
-					"X": "6",
-					"Y": "3",
+					"X": 6,
+					"Y": 3,
 					"Name": "gilfoyle",
 					"Link": [
 						"richard",
@@ -243,71 +148,18 @@
 					]
 				},
 				{
-					"X": "6",
-					"Y": "9",
+					"X": 6,
+					"Y": 9,
 					"Name": "dinish",
 					"Link": [
 						"richard",
 						"jimYoung"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
 					]
 				}
 			]
 		},
 		{
 			"Ants": [
-				{
-					"Name": 1
-				},
 				{
 					"Name": 2
 				},
@@ -322,21 +174,12 @@
 				},
 				{
 					"Name": 6
-				},
-				{
-					"Name": 7
-				},
-				{
-					"Name": 8
-				},
-				{
-					"Name": 9
 				}
 			],
 			"Paths": [
 				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -344,8 +187,8 @@
 					]
 				},
 				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -353,17 +196,8 @@
 					]
 				},
 				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "11",
-					"Y": "7",
+					"X": 11,
+					"Y": 7,
 					"Name": "jimYoung",
 					"Link": [
 						"dinish",
@@ -372,8 +206,8 @@
 					]
 				},
 				{
-					"X": "6",
-					"Y": "3",
+					"X": 6,
+					"Y": 3,
 					"Name": "gilfoyle",
 					"Link": [
 						"richard",
@@ -382,57 +216,18 @@
 					]
 				},
 				{
-					"X": "6",
-					"Y": "9",
+					"X": 6,
+					"Y": 9,
 					"Name": "dinish",
 					"Link": [
 						"richard",
 						"jimYoung"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
 					]
 				}
 			]
 		},
 		{
 			"Ants": [
-				{
-					"Name": 1
-				},
-				{
-					"Name": 2
-				},
-				{
-					"Name": 3
-				},
 				{
 					"Name": 4
 				},
@@ -447,15 +242,12 @@
 				},
 				{
 					"Name": 8
-				},
-				{
-					"Name": 9
 				}
 			],
 			"Paths": [
 				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -463,8 +255,8 @@
 					]
 				},
 				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -472,35 +264,8 @@
 					]
 				},
 				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "11",
-					"Y": "7",
+					"X": 11,
+					"Y": 7,
 					"Name": "jimYoung",
 					"Link": [
 						"dinish",
@@ -509,8 +274,8 @@
 					]
 				},
 				{
-					"X": "6",
-					"Y": "3",
+					"X": 6,
+					"Y": 3,
 					"Name": "gilfoyle",
 					"Link": [
 						"richard",
@@ -519,43 +284,18 @@
 					]
 				},
 				{
-					"X": "6",
-					"Y": "9",
+					"X": 6,
+					"Y": 9,
 					"Name": "dinish",
 					"Link": [
 						"richard",
 						"jimYoung"
-					]
-				},
-				{
-					"X": "0",
-					"Y": "6",
-					"Name": "richard",
-					"Link": [
-						"dinish",
-						"gilfoyle",
-						"erlich"
 					]
 				}
 			]
 		},
 		{
 			"Ants": [
-				{
-					"Name": 1
-				},
-				{
-					"Name": 2
-				},
-				{
-					"Name": 3
-				},
-				{
-					"Name": 4
-				},
-				{
-					"Name": 5
-				},
 				{
 					"Name": 6
 				},
@@ -571,8 +311,8 @@
 			],
 			"Paths": [
 				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -580,8 +320,8 @@
 					]
 				},
 				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -589,53 +329,8 @@
 					]
 				},
 				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "11",
-					"Y": "7",
+					"X": 11,
+					"Y": 7,
 					"Name": "jimYoung",
 					"Link": [
 						"dinish",
@@ -644,8 +339,8 @@
 					]
 				},
 				{
-					"X": "6",
-					"Y": "3",
+					"X": 6,
+					"Y": 3,
 					"Name": "gilfoyle",
 					"Link": [
 						"richard",
@@ -658,27 +353,6 @@
 		{
 			"Ants": [
 				{
-					"Name": 1
-				},
-				{
-					"Name": 2
-				},
-				{
-					"Name": 3
-				},
-				{
-					"Name": 4
-				},
-				{
-					"Name": 5
-				},
-				{
-					"Name": 6
-				},
-				{
-					"Name": 7
-				},
-				{
 					"Name": 8
 				},
 				{
@@ -687,8 +361,8 @@
 			],
 			"Paths": [
 				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -696,71 +370,8 @@
 					]
 				},
 				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
+					"X": 14,
+					"Y": 6,
 					"Name": "peter",
 					"Link": [
 						"gilfoyle",
@@ -770,118 +381,8 @@
 			]
 		},
 		{
-			"Ants": [
-				{
-					"Name": 1
-				},
-				{
-					"Name": 2
-				},
-				{
-					"Name": 3
-				},
-				{
-					"Name": 4
-				},
-				{
-					"Name": 5
-				},
-				{
-					"Name": 6
-				},
-				{
-					"Name": 7
-				},
-				{
-					"Name": 8
-				},
-				{
-					"Name": 9
-				}
-			],
-			"Paths": [
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				},
-				{
-					"X": "14",
-					"Y": "6",
-					"Name": "peter",
-					"Link": [
-						"gilfoyle",
-						"jimYoung"
-					]
-				}
-			]
+			"Ants": [],
+			"Paths": []
 		}
 	]
 }

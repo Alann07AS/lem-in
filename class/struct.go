@@ -2,6 +2,7 @@ package class
 
 import (
 	"fmt"
+	"strconv"
 )
 
 type Room struct {
@@ -110,19 +111,23 @@ type NewAnt struct {
 }
 
 type NewRoom struct {
-	X    string
-	Y    string
+	X    int
+	Y    int
 	Name string
 	Link []string
 }
 
 type TOJSON struct {
-	RoomS []NewRoom
-	Steps []Step
+	StartRoom NewRoom
+	NbAnt     int
+	RoomS     []NewRoom
+	Steps     []Step
 }
 
 func ToSjson(f *Farm, ST []Step) TOJSON {
 	return TOJSON{
+		StartRoom: f.Start.GetNewRoom(),
+		NbAnt:     f.AntNb,
 		RoomS: func() []NewRoom {
 			t := []NewRoom{}
 			for _, v := range f.Rooms {
@@ -141,8 +146,14 @@ type Step struct {
 
 func (r *Room) GetNewRoom() NewRoom {
 	return NewRoom{
-		X:    r.X,
-		Y:    r.Y,
+		X: func() int {
+			nb, _ := strconv.Atoi(r.X)
+			return nb
+		}(),
+		Y: func() int {
+			nb, _ := strconv.Atoi(r.Y)
+			return nb
+		}(),
 		Name: r.Name,
 		Link: func() []string {
 			table := []string{}

@@ -86,14 +86,8 @@ func main() {
 
 	stepTable := []class.Step{}
 
-	popRunI := 1
 	for i := 0; i < shortestEtape; i++ {
 		stepTable = append(stepTable, class.Step{Ants: []class.NewAnt{}, Paths: []class.NewRoom{}})
-		for range bestPath {
-			if popRunI < farm.AntNb {
-				popRunI++
-			}
-		}
 		for _, ant := range farm.Population[:] {
 			if len(ant.Path.Path) == 0 {
 				iM := findMinPath(pathObj)
@@ -120,9 +114,16 @@ func main() {
 
 		// fmt.Print(popRunI)
 		for _, ant := range farm.Population[:] {
-			// fmt.Print(ant.ID)
-
-			stepTable[len(stepTable)-1].Paths = append(stepTable[len(stepTable)-1].Paths, ant.MoveAnt().GetNewRoom())
+			// fmt.Print(len(ant.Path.Path) == 0 || ant.Path.Path[ant.PositionI].Name == farm.End.Name)
+			if len(ant.Path.Path) == 0 || ant.Path.Path[ant.PositionI].Name == farm.End.Name {
+				continue
+			}
+			pos := ant.PositionI
+			ant.MoveAnt()
+			if pos == ant.PositionI {
+				continue
+			}
+			stepTable[len(stepTable)-1].Paths = append(stepTable[len(stepTable)-1].Paths, ant.Path.Path[ant.PositionI].GetNewRoom())
 			stepTable[len(stepTable)-1].Ants = append(stepTable[len(stepTable)-1].Ants, ant.GetNewAnt())
 			if ant.Path.Path[ant.PositionI].Name == farm.End.Name {
 				ant.Path.Path[ant.PositionI].DeletAnt(ant)

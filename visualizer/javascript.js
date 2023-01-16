@@ -13,13 +13,31 @@ const ctx = canvas.getContext('2d');
 ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
 const info = canvas.getBoundingClientRect()
 
+const btStart = document.getElementById("start")
+const btPause = document.getElementById("pause")
+const btReset = document.getElementById("reset")
+
+btStart.addEventListener("click", ()=>{
+    console.log("coucouBTSTART");
+    wait = false
+    step++
+    CoolDownTravel.start()
+})
+btPause.addEventListener('click', ()=>{
+    CoolDownTravel.stop()
+    console.log("PAUSE");
+})
+btReset.addEventListener('click', ()=>{
+
+})
+
 let wait = true
 let step = -1
 let isUpdate = false
-const travelTime = 2000
-const waitTime = 5000
-const CoolDownTravel = new CooldDown(travelTime, ()=> wait = true);
+const travelTime = 200
+const waitTime = 1000
 const CoolDownWaitTravel = new CooldDown(waitTime, ()=> {wait = false; step++});
+const CoolDownTravel = new CooldDown(travelTime, ()=> {wait = true; CoolDownWaitTravel.start()});
 
 /**
  * 
@@ -66,6 +84,11 @@ fetch('../ant.json')
         const data = JSON.parse(text);
         console.log(data);
         //DRAW each Room and link
+
+        function goStart(ant) {
+            ant.x = data.StartRoom.X*echelX+d
+            ant.y = data.StartRoom.Y*echelY+d
+        }
         
         let minX = 100000;
         let maxX = 10;
@@ -84,16 +107,23 @@ fetch('../ant.json')
         const echelY =  ((info.height-(2*ofset)) / (maxY))
         
         tableAnt = []
+        antLeft = data.NbAnt
         for (let i = 0; i < data.NbAnt; i++) {
             tableAnt.push(new Ant(i+1, data.StartRoom.X*echelX+d, data.StartRoom.Y*echelY+d))
         }
         console.log(tableAnt);
+
+        let previousTime = Date.now()
+        let frameCount = 0
+        let colaps = 1
+
         requestAnimationFrame(loop = ()=>{
-            CoolDownWaitTravel.start()
-            if (wait || data.Steps.length <= step ) {
-                requestAnimationFrame(loop)
-                isUpdate = false
-                return
+
+            frameCount++;
+            if ( Date.now() - previousTime >= 250) {
+                colaps = (Date.now() - previousTime) / frameCount;
+                frameCount = 0;
+                previousTime = Date.now()
             }
             ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
             data.RoomS.forEach(room => {
@@ -141,6 +171,33 @@ fetch('../ant.json')
                 // ctx.strokeRect((room.X*echelX)+ofset , (room.Y*echelY)+ofset, room.Name.length*40, 50)
             });
 
+            if (step >= 0 && step < data.Steps.length) {
+                data.Steps[step].Ants.forEach((antName, i)=>{
+                    /**
+                     * @type {Ant}
+                     */
+                    const ant = Ant.getByName(tableAnt, antName.Name)
+                    ctx.beginPath()
+                    ctx.arc(ant.x, ant.y, 20, 0, Math.PI*2)
+                    ctx.fillStyle = "blue"
+                    ctx.fill()
+                });    
+            }
+            if (step > data.Steps.length) {
+                wait = true
+                CoolDownTravel.stop()
+                CoolDownWaitTravel.stop()
+                step = -1
+                tableAnt.forEach(ant => {
+                    goStart(ant)
+                });
+            }
+            if (wait || data.Steps.length <= step ) {
+                requestAnimationFrame(loop)
+                isUpdate = false
+                return
+            }
+
             data.Steps[step].Ants.forEach((antName, i)=>{
                 /**
                  * @type {Ant}
@@ -150,18 +207,16 @@ fetch('../ant.json')
                 if (!isUpdate) {
                     const r = data.Steps[step].Paths[i]
                     const speeds = GetSpeedsToGo(ant.x, ant.y, r.X*echelX+d, r.Y*echelY+d, travelTime)
-                    ant.xSpeed = speeds[0]*16,7
-                    ant.ySpeed = speeds[1]*16,7
+                    ant.xSpeed = speeds[0]*colaps
+                    ant.ySpeed = speeds[1]*colaps
                     
-                    console.log("speeds", ant.xSpeed, ant.ySpeed);
+                    // console.log("speeds", ant.xSpeed, ant.ySpeed);
                 }
+
                 CoolDownTravel.start()
-                    ctx.beginPath()
-                    ctx.arc(ant.x, ant.y, 20, 0, Math.PI*2)
-                    ctx.fillStyle = "blue"
-                    ctx.fill()
                 ant.x += ant.xSpeed
                 ant.y += ant.ySpeed
+
             })
             isUpdate = true
             requestAnimationFrame(loop)

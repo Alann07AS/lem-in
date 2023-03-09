@@ -34,7 +34,7 @@ btReset.addEventListener('click', ()=>{
 let wait = true
 let step = -1
 let isUpdate = false
-const travelTime = 200
+const travelTime = 1000
 const waitTime = 1000
 const CoolDownWaitTravel = new CooldDown(waitTime, ()=> {wait = false; step++});
 const CoolDownTravel = new CooldDown(travelTime, ()=> {wait = true; CoolDownWaitTravel.start()});

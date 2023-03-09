@@ -41,17 +41,17 @@ func main() {
 	// }
 
 	test := findpath.FindNoCrossPathList(*res, *farm)
-	for _, x := range test {
-		for _, y := range x {
-			for _, z := range y {
-				// fmt.Print(i)
-				fmt.Print(z.Name)
-				fmt.Print(" -> ")
-			}
-			fmt.Println("")
-		}
-		fmt.Println()
-	}
+	// for _, x := range test {
+	// 	for _, y := range x {
+	// 		for _, z := range y {
+	// 			// fmt.Print(i)
+	// 			fmt.Print(z.Name)
+	// 			fmt.Print(" -> ")
+	// 		}
+	// 		fmt.Println("")
+	// 	}
+	// 	fmt.Println()
+	// }
 	bestPath := [][]*class.Room{}
 	shortestEtape := 0
 	for _, pathLs := range test {
@@ -60,13 +60,13 @@ func main() {
 		for _, p := range pathLs {
 			table = append(table, len(p)-1)
 		}
-		fmt.Println(table)
+		// fmt.Println(table)
 		for n != 0 {
 			table[findMin(table)]++
 			n--
 		}
-		fmt.Println(table)
-		fmt.Println()
+		// fmt.Println(table)
+		// fmt.Println()
 		if newLen := findMaxValue(table); shortestEtape > newLen || shortestEtape == 0 {
 			shortestEtape = newLen
 			bestPath = pathLs
